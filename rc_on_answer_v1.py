@@ -115,7 +115,7 @@ def submit_note(body):
     enter = line_break.replace('\n', '<br>')
     ticket_data = json.dumps({
         "private": True,
-        "body": f"Agent Notes:{enter} {formatted_body}",
+        "body": f"Agent Notes:{enter}{formatted_body}",
     })
 
     # Send request to submit private note

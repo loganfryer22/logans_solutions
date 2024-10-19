@@ -29,18 +29,16 @@ selected_facility_name = ""
 override_number = ""
 
 ### RC args ###
-incoming_phone_number = sys.argv[1]
-incoming_first_name = sys.argv[2]
-incoming_last_name = sys.argv[3]
-full_name = f"{incoming_first_name} {incoming_last_name}"
-ticket_number = ''
-# incoming_phone_number = '987654321'
-# incoming_first_name = 'First'
-# incoming_last_name = 'Last'
-# ticket_number = '518178'
+# incoming_phone_number = sys.argv[1]
+# incoming_first_name = sys.argv[2]
+# incoming_last_name = sys.argv[3]
 # full_name = f"{incoming_first_name} {incoming_last_name}"
-
-
+# ticket_number = ''
+incoming_phone_number = '987654321'
+incoming_first_name = 'First'
+incoming_last_name = 'Last'
+ticket_number = '518178'
+full_name = f"{incoming_first_name} {incoming_last_name}"
 
 # functions to Bind mouse events for dragging
 def start_move(event):
@@ -187,7 +185,6 @@ def submit_and_continue(body):
     update_data = json.dumps({
         'group_id': group_id,
         'department_id': selected_facility_id,
-        'user_phone_number': phone_number_override,
 
     })
 
@@ -369,7 +366,6 @@ def run_all():
 ## lines of codes to be static ##
 # Fetch departments and extract names
 all_departments = get_departments()
-
 ## lines of codes to be static ##
 
 # Create the main window
@@ -478,7 +474,6 @@ submit_and_hold_button = ttk.Button(content_frame, text="Submit/Hold",
                                     command=lambda: submit_and_hold(notes_text.get('1.0', tk.END)))
 submit_and_hold_button.grid(row=5, column=0, columnspan=1, pady=10, sticky="e")
 
-
 # Submit/Close Button
 submit_and_close_button = ttk.Button(content_frame, text="Submit/Close",
                                      command=lambda: submit_and_close())
@@ -489,5 +484,5 @@ root.grid_rowconfigure(1, weight=1)
 root.grid_columnconfigure(0, weight=1)
 
 # run functions and keep gui open
-run_all()
+# run_all()
 root.mainloop()
